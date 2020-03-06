@@ -16,4 +16,21 @@ pipeline {
     }
 
   }
+  agent {
+    node {
+      label 'Development'
+    }
+  stages {
+    stage('Deploy to Dev') {
+      steps {
+        sh 'cd /home/development'
+        sh 'git checkout master'
+        sh 'git pull origin master'
+        sh 'git checkout dev'
+        sh 'git pull origin dev'
+        sh 'ls'
+      }
+    }
+
+  }
 }
