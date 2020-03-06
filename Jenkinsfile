@@ -20,6 +20,8 @@ pipeline {
     node {
       label 'Development'
     }
+
+  }
   stages {
     stage('Deploy to Dev') {
       steps {
