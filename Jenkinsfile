@@ -1,12 +1,12 @@
 pipeline {
-  agent {
-    node {
-      label 'Test'
-    }
-
-  }
+  agent none
   stages {
     stage('Deploy to Test') {
+      agent {
+        node {
+          label 'Test'
+        }
+      }
       steps {
         sh 'cd /home/test'
         sh 'git checkout master'
@@ -14,16 +14,12 @@ pipeline {
         sh 'ls'
       }
     }
-
-  }
-  agent {
-    node {
-      label 'Development'
-    }
-
-  }
-  stages {
     stage('Deploy to Dev') {
+      agent {
+        node {
+          label 'Development'
+        }
+      }
       steps {
         sh 'cd /home/development'
         sh 'git checkout master'
@@ -33,6 +29,5 @@ pipeline {
         sh 'ls'
       }
     }
-
   }
 }
