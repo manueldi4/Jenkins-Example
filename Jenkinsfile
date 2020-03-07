@@ -8,7 +8,6 @@ pipeline {
         }
       }
       steps {
-        sh 'cd /home/test/Jenkins-Example'
         sh 'git checkout master'
         sh 'git pull origin master'
         sh 'ls'
@@ -21,7 +20,6 @@ pipeline {
         }
       }
       steps {
-        sh 'cd /home/development/Jenkins-Example'
         sh 'git checkout master'
         sh 'git pull origin master'
         sh 'git checkout dev'
